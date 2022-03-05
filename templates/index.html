@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <!--linking a css style sheet above-->
+    <title>Checkerboard</title>
+    <style>
+        .box1{
+            background-color:{{color}};
+        }
+        .box2{background-color:{{difcolor}};
+        }
+    </style>
+</head>
+<body>
+    <div class="holder">
+        <h1 class="title">***Checkerboard***</h1>
+        <p></p>
+        <table>
+        {% for i in range(0,num): %}
+            <tr>
+            {% for x in range(0,w,): %}
+                <td class="box{{ (i+x)%2+1 }}"></td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
